@@ -1,0 +1,88 @@
+v0.1   26.06.2014
+
+   Creation
+
+v0.2   03.06.2015
+
+   Fixed an issue with "half"-chapters, e.g "Tower of God Chapter 6.5.cbz".
+   Fixed an issue with a superfluous leading zero, so it would rename the files to "chapter 0120.cbz" instead of "chapter 120.cbz" when 120 was the highest number etc.
+
+
+
+Doku erstellen
+Umbenennen rückgängig machen
+"Clear" Button um alle Einträge zu entfernen
+Möglichkeit, einzelne Einträge zu löschen
+
+AUs irgendeinem Grund macht das eine führende Null mehr als notwendig. Bei Zahlen 1-27 macht er 001, 002..026, 027
+-> sollte nun gefixt sein, auch das Padding selbst angeben sollte möglich sein.
+
+
+Kann nicht mehr mit Zwischenkapitel umgehen, also "Chapter 6.5.cbz" blickt er nicht mehr richtig..
+-> Stimmt nun wieder..denke/hoffe ich.
+
+Aber irgendwie ging da ja einiges kaputt. In MainWindow hab ich eine "alte" Rename-Methode, die "nur" some chapter 3.txt behandeln kann, nicht "some 3 chapter.txt"
+Aber letzteres geht ja grad auch nicht korrekt..
+
+Und was ist mit "AdvancedGui" ? hab ich da nicht mal einiges gemacht von wegen hinterherschieben etc.? Das es erkennt, was Name ist, was Kapitel und was Dateiendung, und das er das *anzeig* und man in den Spalten hin und her schieben kann?
+
+Ich hab ja sogar StringExtension und DataGridExtension dafür erstellt, damit das Zeugs kann was ich wil..
+
+---
+
+
+
+Dieses Tool ist nur für genau einem Zweck gedacht: Zum Umbennen von einzelnen Büchern, Kapitel oder Episoden, um die Länge der Nummerierung am Ende des Names bei allen Dateien gleich zu halten, damit diverse Programme wie z.B. Calibre oder auch E-Book Reader wie Kindle (zumindest die ersten Generationen) die Dateien in der zur Verwendung (Lesen, Anschauen etc.) korrekten Reihenfolge aufführen.
+
+Oft ist die Kapitel- oder Episodennummer etc. ohne führende Nullen, also z.B. "Episode 1.mkv" oder Chapter 21.mobi", und manche Hard- und Software sortiert strikt lexikalisch, die Ziffern werden also nicht als eine ganze Zahl betrachtet, sondern individuell wie Buchstaben, was dazu führt das z.B. Chapter 10.mobi" direkt hinter Chapter 1.mobi" steht, und erst danach (bzw. nach Kapitel 11 bis 19..) "Chapter 2.mobi", da die 1 vor der 2 kommt, und die zweite Ziffer erst *danach* betrachtet wird.
+
+Gerade bei Manga, die oft mehrere hundert Kapitel haben, ist dies äußert unpraktisch.
+
+Zusätzlich kann dieses Tool noch den Namen kürzen, aus "Magician (KIM Sarae) 3.mobi" kann man somit "Magician 003.mobi" machen. Sind alle Kapitel so benannt lassen sich diese deutlich leichter hintereinander weg lesen als mit dem ursprünglichen Namen.
+
+Benutzung:
+
+1. Dateien in Fenster reinziehen (drag & drop). Diese werden automatisch sortiert, wobei eine Nummerierung am Ende korrekt beachtet wird, statt strikt nach Zeichen zu sortieren
+Dabei kann dieses Tools auch Fließkommazahlen, also "Chapter 9.5.mobi" erkennen, richtig sortieren und korrekt umzubennen. 
+
+Aus			wird dann also	
+
+Chapter 1.txt		Chapter 1.txt
+Chapter 10.txt		Chapter 2.txt
+chapter 100.txt		Chapter 9.txt		
+chapter 12.txt		Chapter 10.txt
+Chapter 2.txt           Chapter 11.txt
+Chapter 21.txt		Chapter 12.txt
+
+...			...
+
+Chapter 9.txt		Chapter 90.txt
+Chapter 90.txt		Chapter 100.txt
+
+
+2. Gemeinsamer Name aller Dateien in das Textfeld eingeben, also etwa "Tower of God". Wird kein Name angegeben 
+werden die Dateien in "1.txt", "2.txt" etc. umbenannt - es bleibt also nur die Nummerierung
+
+3. Optional kann mit {x} die Anzahl der führenden Nullen angebenen werden.
+
+   "Tower of God {3} würde somit folgende Umbenennung durchführen:	 #-#-#-# DISCLAIMER: FUNKTIONIERT AKTUELL NICHT #-#-#-#-
+
+
+   Tower of God 1.mobi		=>	Tower of God 001.mobi			
+   Tower of God 2.mobi		=>	Tower of God 002.mobi
+     ...					...
+   Tower of God 97.mobi		=>	Tower of God 097.mobi
+    ...						...
+   Tower of God 123.mobi	=>	Tower of God 123.mobi
+
+
+4. Auf "Rename" klicken. Nach wenigen Sekunden (meist geht es sofort) sollten die Dateien umbenannt sein.
+
+5. Zu beachten:
+
+a) Derzeit ist es nicht möglich, einzelne Dateien aus der Liste zu löschen. Auch kann man nicht einzelne Dateien an die bestehende Liste anhängen,
+stattdessen werden die alten Einträge durch die neuen Dateien ersetzt.
+
+b) Es muss eine Nummerierung geben, und diese muss am Ende des Names stehen, ansonsten funktioniert die Umbennung nicht. Auch Ziffern mitten drinnen, z.B. "Magician 2. Volume Chapter 3.mobi" führt derzeit zu einem Fehler.
+
+c) *Alle* Dateien bekommen den selben (angebenen) Namen, die bestehende Nummerierung wird übernommen und es werden nur die führenden Nullen angehängt. Es ist also nicht möglich, mehrere Serien gleichzeitig korrekt umzubennen.

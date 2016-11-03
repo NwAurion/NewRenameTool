@@ -1,0 +1,11 @@
+﻿<Window x:Class="NewRenameTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="MainWindow" Height="400" Width="800"
+        xmlns:gui="clr-namespace:NewRenameTool.GUI">
+    <Grid>
+        <gui:SimpleGUI Visibility="Visible"></gui:SimpleGUI>
+        <gui:AdvancedGUI Visibility="Collapsed"></gui:AdvancedGUI>
+    </Grid>
+</Window>
