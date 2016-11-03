@@ -1,5 +1,4 @@
 # NewRenameTool
-NewRenameTool
 
 This tool is intended to be use with multiple related files, e.g. chapters of a book or manga, so that they are a) named
 consistently and can be sorted in a more useful way. Instead of 
